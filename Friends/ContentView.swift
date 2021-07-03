@@ -7,43 +7,65 @@
 
 import SwiftUI
 
+
 struct ContentView: View {
     
-    var friends = [Friend(name: "Minghao",
-                          icon: "person.fill.checkmark",
-                          school: "Hwa Chong",
-                          slothImage: "sloth3"),
-                   Friend(name: "Yixing",
-                          icon: "bolt.heart.fill",
-                          school: "Raffles Junior College",
-                          slothImage: "sloth2"),
-                   Friend(name: "Dawn",
-                          icon: "zzz",
-                          school: "Temasek Junior College",
-                          slothImage: "sloth1")]
+    
+    @State var friends = [Friend(name: "Minghao",
+                                 icon: "person.fill.checkmark",
+                                 school: "NUS High",
+                                 slothImage: "sloth3",
+                                 attack: 10,
+                                 defense: 5,
+                                 types: [.ice, .fire]),
+                          Friend(name: "Yixing",
+                                 icon: "bolt.heart.fill",
+                                 school: "Raffles Junior College",
+                                 slothImage: "sloth2",
+                                 attack: 8,
+                                 defense: 10,
+                                 types: [.electric, .normal]),
+                          Friend(name: "Dawn",
+                                 icon: "zzz",
+                                 school: "Temasek Junior College",
+                                 slothImage: "sloth1",
+                                 attack: 9,
+                                 defense: 12,
+                                 types: [.grass, .normal, .fire])]
+    
+    
     
     var body: some View {
         NavigationView {
-            List(friends) { friend in
-                NavigationLink(destination: FriendDetailView(friend: friend)) {
-                    Image(systemName: friend.icon)
+            List (0..<friends.count) { index in
+                NavigationLink(destination: FriendDetailView(friend: $friends[index])) {
+                    
+                    Image(systemName: friends[index].icon)
                     
                     VStack(alignment: .leading) {
-                        Text(friend.name)
+                        Text(friends[index].name)
                             .bold()
-                        Text(friend.school)
+                        HStack {
+                            Text(friends[index].school)
+                            
+                            Spacer()
+                            
+                            ForEach(friends[index].types, id: \rawValue) { type in
+                                Image(systemName: type.getSymbolName())
+                                
+                                }
+                            }
+                        }
                     }
                 }
                 .navigationTitle("Friends")
             }
         }
     }
-        
-        struct ContentView_Previews: PreviewProvider {
-            static var previews: some View {
-                ContentView()
-            }
+    
+    struct ContentView_Previews: PreviewProvider {
+        static var previews: some View {
+            ContentView()
         }
-        
     }
 

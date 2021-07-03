@@ -12,9 +12,13 @@ struct Friend: Identifiable {
     var id = UUID()
     
     var name: String
-       var icon: String
-       var school: String
-       
-       var slothImage: String
+    var icon: String
+    var school: String
     
+    var slothImage: String
+    
+    var attack: Double
+    var defense: Double
+    
+    var types: [FriendType]
 }

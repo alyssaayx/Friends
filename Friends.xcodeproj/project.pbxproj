@@ -13,6 +13,7 @@
 		99A9A1062686CC930043F9C6 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 99A9A1052686CC930043F9C6 /* Preview Assets.xcassets */; };
 		99A9A10E2686CCC20043F9C6 /* Friend.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99A9A10D2686CCC20043F9C6 /* Friend.swift */; };
 		99A9A1102686CF820043F9C6 /* FriendDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99A9A10F2686CF820043F9C6 /* FriendDetailView.swift */; };
+		99FFD15A26900C1B00FB3368 /* FriendType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99FFD15926900C1B00FB3368 /* FriendType.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -24,6 +25,7 @@
 		99A9A1072686CC930043F9C6 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		99A9A10D2686CCC20043F9C6 /* Friend.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Friend.swift; sourceTree = "<group>"; };
 		99A9A10F2686CF820043F9C6 /* FriendDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FriendDetailView.swift; sourceTree = "<group>"; };
+		99FFD15926900C1B00FB3368 /* FriendType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FriendType.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -58,6 +60,7 @@
 			children = (
 				99A9A0FE2686CC900043F9C6 /* FriendsApp.swift */,
 				99A9A1002686CC900043F9C6 /* ContentView.swift */,
+				99FFD15926900C1B00FB3368 /* FriendType.swift */,
 				99A9A10F2686CF820043F9C6 /* FriendDetailView.swift */,
 				99A9A10D2686CCC20043F9C6 /* Friend.swift */,
 				99A9A1022686CC930043F9C6 /* Assets.xcassets */,
@@ -144,6 +147,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				99FFD15A26900C1B00FB3368 /* FriendType.swift in Sources */,
 				99A9A10E2686CCC20043F9C6 /* Friend.swift in Sources */,
 				99A9A1012686CC900043F9C6 /* ContentView.swift in Sources */,
 				99A9A0FF2686CC900043F9C6 /* FriendsApp.swift in Sources */,
