@@ -7,7 +7,7 @@
 
 import Foundation
 
-enum FriendType: String {
+enum FriendType: String, Codable {
     case normal = "normal"
     case fire = "fire"
     case water = "water"
