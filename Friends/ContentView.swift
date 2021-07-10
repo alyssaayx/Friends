@@ -33,39 +33,52 @@ struct ContentView: View {
                                  defense: 12,
                                  types: [.grass, .normal, .fire])]
     
-    
+    @State var isSheetPresented = false
     
     var body: some View {
         NavigationView {
-            List (0..<friends.count) { index in
-                NavigationLink(destination: FriendDetailView(friend: $friends[index])) {
+            List {
+                ForEach(friends) { friend in
+                    let friendIndex = friends.firstIndex(of: friend)!
                     
-                    Image(systemName: friends[index].icon)
-                    
-                    VStack(alignment: .leading) {
-                        Text(friends[index].name)
-                            .bold()
-                        HStack {
-                            Text(friends[index].school)
-                            
-                            Spacer()
-                            
-                            ForEach(friends[index].types, id: \rawValue) { type in
-                                Image(systemName: type.getSymbolName())
+                    NavigationLink(destination: FriendDetailView(friend: $friends[friendIndex])) {
+                        Image(systemName: friend.icon)
+                        
+                        VStack(alignment: .leading) {
+                            Text(friend.name)
+                                .bold()
+                            HStack {
+                                Text(friend.school)
                                 
+                                Spacer()
+                                
+                                ForEach(friend.types, id: \.rawValue) { type in
+                                    Image(systemName: type.getSymbolName())
                                 }
                             }
                         }
                     }
+                }.onDelete { offsets in
+                    friends.remove(atOffsets: offsets)
+                }.onMove { source, destination in
+                                   friends.move(fromOffsets: source, toOffset: destination)
                 }
-                .navigationTitle("Friends")
             }
+            .navigationTitle("Friends")
+            .navigationBarItems(leading: EditButton(), trailing: Button(action: {
+                isSheetPresented = true
+            }, label: {
+                Image(systemName: "plus")
+            }))
+        }.sheet(isPresented: $isSheetPresented) {
+            NewFriendView(friends: $friends)
         }
     }
-    
-    struct ContentView_Previews: PreviewProvider {
-        static var previews: some View {
-            ContentView()
-        }
+}
+
+struct ContentView_Previews: PreviewProvider {
+    static var previews: some View {
+        ContentView()
     }
+}
 

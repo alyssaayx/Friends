@@ -41,42 +41,42 @@ struct FriendDetailView: View {
                             .foregroundColor(.white)
                             .cornerRadius(10)
                     }
-                    .padding()
-                    
-                    
-                    Text("\(Image(systemName: friend.icon)) \(friend.school)")
-                        .font(.system(size: 24))
-                        .padding()
-                    
-                    VStack(alignment: .leading) {
-                        Text("Attack")
-                        Slider(value: $friend.attack,
-                               in: 0...15,
-                               step: 1)
-                        
-                        Text("Defence")
-                        Slider(value: $friend.defense,
-                               in: 0...15,
-                               step: 1)
-                    }
-                    }
-                    .padding()
-                    
-                    Spacer()
                 }
-                .navigationTitle(friend.name)
+                .padding()
+                
+                Text("\(Image(systemName: friend.icon)) \(friend.school)")
+                    .font(.system(size: 24))
+                    .padding()
+                
+                VStack(alignment: .leading) {
+                    Text("Attack")
+                    Slider(value: $friend.attack,
+                           in: 0...15,
+                           step: 1)
+                    
+                    Text("Defence")
+                    Slider(value: $friend.defense,
+                           in: 0...15,
+                           step: 1)
+                }
+                .padding()
+                
+                Spacer()
             }
         }
+        .navigationTitle(friend.name)
     }
-    
-    struct FriendDetailView_Previews: PreviewProvider {
-        static var previews: some View {
-            FriendDetailView(friend: .constant(Friend(name: "Minghao",
-                                                      icon: "person.fill.checkmark",
-                                                      school: "NUS High",
-                                                      slothImage: "sloth3",
-                                                      attack: 10,
-                                                      defense: 5,
-                                                      types: [.ice, .fire])))
-        }
+}
+
+
+struct FriendDetailView_Previews: PreviewProvider {
+    static var previews: some View {
+        FriendDetailView(friend: .constant(Friend(name: "Minghao",
+                                                  icon: "person.fill.checkmark",
+                                                  school: "NUS High",
+                                                  slothImage: "sloth3",
+                                                  attack: 10,
+                                                  defense: 5,
+                                                  types: [.ice, .fire])))
     }
+}
